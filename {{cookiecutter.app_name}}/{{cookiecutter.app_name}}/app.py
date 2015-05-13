@@ -53,7 +53,8 @@ def configure_blueprints(app):
 
 
 def configure_extensions(app):
-    for ext in load_module_instances('extensions'):
+    for ext in load_module_instances('.extensions',
+                                     package="{{cookiecutter.app_name}}"):
         if getattr(ext, 'init_app', False):
             ext.init_app(app)
 
@@ -75,7 +76,8 @@ def configure_error_handlers(app):
     def internal_server_error(error):
         if request.is_xhr:
             return jsonify(error="An error has occurred")
-        return render_template("errors/internal_server_error.html", error=error), 500
+        return render_template("errors/internal_server_error.html",
+                               error=error), 500
 
 
 def configure_logging(app):

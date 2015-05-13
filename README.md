@@ -10,5 +10,10 @@ Heavily influenced by
 
 ## What you get
 
-  * Pyenv virtualenv created
-  * Teamocil tmux yml file
+  * pyenv virtualenv created
+  * teamocil yml file
+  * konch configuration
+
+## Todo
+
+  * Add version into __init__.py

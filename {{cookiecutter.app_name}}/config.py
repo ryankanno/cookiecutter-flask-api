@@ -3,6 +3,7 @@
 
 import os
 from {{cookiecutter.app_name}}.apps.www import www
+from {{cookiecutter.app_name}}.apps.users import users
 
 
 class DefaultConfig(object):
@@ -15,7 +16,7 @@ class DefaultConfig(object):
     STATIC_DIR = os.path.join(PROJECT_ROOT, '{{cookiecutter.app_name}}', 'apps', 'static')
     TEMPLATE_DIR = os.path.join(PROJECT_ROOT, '{{cookiecutter.app_name}}', 'apps', 'templates')
 
-    BLUEPRINTS = (www,)
+    BLUEPRINTS = (www, users)
 
     LOG_INI = 'etc/logging.ini.json'
 

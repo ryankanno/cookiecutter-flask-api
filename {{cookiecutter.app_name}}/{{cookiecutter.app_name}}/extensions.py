@@ -1,12 +1,26 @@
-from flask_debugtoolbar import DebugToolbarExtension
-from flask_mail import Mail
-from flask.ext.cache import Cache
-from flask.ext.seasurf import SeaSurf
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from flask.ext.bcrypt import Bcrypt
-
-
-mail = Mail()
-cache = Cache()
-csrf = SeaSurf()
 bcrypt = Bcrypt()
+
+from flask.ext.cache import Cache
+cache = Cache()
+
+from flask_wtf.csrf import CsrfProtect
+csrf = CsrfProtect()
+
+from flask_debugtoolbar import DebugToolbarExtension
 toolbar = DebugToolbarExtension()
+
+from flask_login import LoginManager
+login_manager = LoginManager()
+login_manager.login_view = "users.login"
+
+from flask_mail import Mail
+mail = Mail()
+
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+
+# vim: filetype=python

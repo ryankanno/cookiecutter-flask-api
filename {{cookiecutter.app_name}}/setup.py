@@ -56,14 +56,17 @@ with open(os.path.join(HERE, relative_init_path), 'r') as f:
 requires = [
     'Flask==0.10.1',
     'Flask-Bcrypt',
-    'Flask-Cache',
+    'Flask-Cache>=0.13.1',
+    'Flask-DebugToolbar'
     'Flask-Login',
     'Flask-Mail',
-    'Flask-SeaSurf',
+    'Flask-Migrate>=1.4.0',
     'Flask-Security',
-    'Flask-Script',
-    'Flask-DebugToolbar'
+    'Flask-Script>=2.0.5',
+    'Flask-SQLAlchemy>=2.0',
+    'Flask-Testing>=0.4.2'
 ]
+
 tests_require = ['pytest']
 classifiers = [
     'Development Status :: 2 - Pre-Alpha',

@@ -22,10 +22,10 @@ class LoginForm(Form):
         try:
             user = User.query.filter(User.email == form.email.data).one()
         except (MultipleResultsFound, NoResultFound):
-            raise validators.ValidationError("Invalid user")
+            raise validators.ValidationError("Invalid password")
 
         if user is None:
-            raise validators.ValidationError("Invalid user")
+            raise validators.ValidationError("Invalid password")
         if not user.is_valid_password(form.password.data):
             raise validators.ValidationError("Invalid password")
 

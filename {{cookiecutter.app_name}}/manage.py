@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from flask.ext.script import Manager
+from flask.ext.script import prompt_bool
 from flask.ext.migrate import Migrate
 from flask.ext.migrate import MigrateCommand
 from {{cookiecutter.app_name}}.app import get_app

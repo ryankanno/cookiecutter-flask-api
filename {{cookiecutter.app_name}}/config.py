@@ -13,6 +13,8 @@ class DefaultConfig(object):
     PROJECT_NAME = "{{cookiecutter.app_name}}"
     SECRET_KEY = "PLEASE_CHANGE_ME"
 
+    SQLALCHEMY_DATABASE_URI = 'sqlite:////tmp/test.db'
+
     STATIC_DIR = os.path.join(PROJECT_ROOT, '{{cookiecutter.app_name}}', 'apps', 'static')
     TEMPLATE_DIR = os.path.join(PROJECT_ROOT, '{{cookiecutter.app_name}}', 'apps', 'templates')
 

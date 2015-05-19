@@ -1,17 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import bcrypt
+from flask.ext.login import UserMixin
 from sqlalchemy.ext.hybrid import hybrid_property
+
 from {{cookiecutter.app_name}}.database import Model
 from {{cookiecutter.app_name}}.extensions import db
+from {{cookiecutter.app_name}}.helpers import constant_time_compare
 
 
-class User(Model):
+class User(Model, UserMixin):
     __tablename__ = 'users_user'
 
     id = db.Column(
-        db.BigInteger,
-        db.Sequence('id_seq'),
+        db.Integer,
         primary_key=True,
         unique=True,
         nullable=False)
@@ -36,12 +39,12 @@ class User(Model):
     @password.setter
     def password(self, value):
         if self._salt is None:
-            self._salt = bytes(bcrypt.gensalt(rounds=12))
+            self._salt = bytes(bcrypt.gensalt())
         self._password = self._hash_password(value)
 
     def is_valid_password(self, password):
         new_hash = self._hash_password(password)
-        return compare_digest(new_hash, self._password)
+        return constant_time_compare(new_hash, self._password)
 
     def _hash_password(self, password):
         pwd = password.encode("utf-8")
@@ -51,5 +54,6 @@ class User(Model):
 
     def __repr__(self):
         return "<User #{:d}>".format(self.id)
+
 
 # vim: filetype=python

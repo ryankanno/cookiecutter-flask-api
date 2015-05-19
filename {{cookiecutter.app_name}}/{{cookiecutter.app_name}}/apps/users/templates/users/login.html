@@ -9,7 +9,9 @@
 <form action="{{ url_for('users.login') }}" method="POST">
     {{ form.csrf_token }}
     {{ forms.render(form) }}
-    <p><input type="Submit" value="Sign In"></p>
+    <p>
+        <button type="submit">Sign in</button>
+    </p>
 </form>
 
 </div>

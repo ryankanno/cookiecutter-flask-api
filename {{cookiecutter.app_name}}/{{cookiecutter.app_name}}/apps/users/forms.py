@@ -15,7 +15,7 @@ class LoginForm(Form):
     email = fields.StringField(
         validators=[validators.InputRequired(), validators.Email()])
 
-    password = fields.StringField(
+    password = fields.PasswordField(
         validators=[validators.InputRequired()])
 
     def validate_password(form, field):

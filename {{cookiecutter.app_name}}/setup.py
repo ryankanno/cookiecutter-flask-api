@@ -55,7 +55,6 @@ with open(os.path.join(HERE, relative_init_path), 'r') as f:
 
 requires = [
     'Flask==0.10.1',
-    'Flask-Bcrypt',
     'Flask-Cache>=0.13.1',
     'Flask-DebugToolbar'
     'Flask-Login',
@@ -64,7 +63,8 @@ requires = [
     'Flask-Security',
     'Flask-Script>=2.0.5',
     'Flask-SQLAlchemy>=2.0',
-    'Flask-Testing>=0.4.2'
+    'Flask-Testing>=0.4.2',
+    'python-bcrypt>=0.3.1'
 ]
 
 tests_require = ['pytest']

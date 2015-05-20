@@ -49,7 +49,7 @@ class User(Model, UserMixin):
     def _hash_password(self, password):
         pwd = password.encode("utf-8")
         salt = bytes(self._salt)
-        hashed = bcrypt.hashpw(password, salt)
+        hashed = bcrypt.hashpw(pwd, salt)
         return bytes(hashed)
 
     def __repr__(self):
